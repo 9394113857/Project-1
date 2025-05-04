@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Thank You</title>
+</head>
+<body>
+    <h1>Thank You! Your form was submitted.</h1>
+
+    <h2>All Submitted Data</h2>
+    <table border="1" cellpadding="5">
+        <thead>
+            <tr>
+                <th>#</th>
+                <th>User ID</th>
+                <th>Password</th>
+                <th>Username</th>
+                <th>Address</th>
+                <th>Country</th>
+                <th>Zip</th>
+                <th>Email</th>
+                <th>Sex</th>
+                <th>Language</th>
+                <th>Description</th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for idx, entry in data %}
+            <tr>
+                <td>{{ idx }}</td>
+                <td>{{ entry.userid }}</td>
+                <td>{{ entry.passid }}</td>
+                <td>{{ entry.username }}</td>
+                <td>{{ entry.address }}</td>
+                <td>{{ entry.country }}</td>
+                <td>{{ entry.zip }}</td>
+                <td>{{ entry.email }}</td>
+                <td>{{ entry.sex }}</td>
+                <td>{{ entry.language }}</td>
+                <td>{{ entry.desc }}</td>
+            </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+
+    <br>
+    <a href="/"><button>Back to Form</button></a>
+</body>
+</html>

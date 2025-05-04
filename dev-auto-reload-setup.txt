@@ -1,0 +1,15 @@
+# 📦 SETUP FOR AUTO-RELOAD DURING DEVELOPMENT (Frontend + Backend)
+
+# 1️⃣ Install live-server globally for frontend live reloading (HTML/CSS/JS)
+npm install -g live-server
+
+# ➡️ Run this in your project directory to serve files with auto-reload
+live-server
+
+# 2️⃣ Install nodemon globally to auto-restart backend servers (e.g., Node.js or to watch Python files)
+npm install -g nodemon
+
+# 3️⃣ Install flask-livereload for live reloading in Flask backend
+pip install flask-livereload
+
+pip install livereload 

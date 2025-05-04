@@ -1,0 +1,27 @@
+# Ignore Python cache files
+__pycache__/
+*.pyc
+*.pyo
+*.pyd
+
+# Ignore virtual environment folder
+env/
+venv/
+
+# Ignore SQLite database if you don't want to track it in Git
+*.sqlite3
+*.db
+
+# Ignore IDE/editor settings
+.vscode/
+.idea/
+
+# Ignore OS-specific files
+.DS_Store
+Thumbs.db
+
+# Ignore compiled files or logs
+*.log
+
+# Ignore environment variable or secret configuration files
+.env
