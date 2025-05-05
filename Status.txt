@@ -1,0 +1,14 @@
+This file, `Status.txt`, is created as part of the "experiments" branch in the project repository. 
+
+Purpose:
+- To document the purpose and progress of experimental changes in this branch.
+- To serve as a reference for tracking updates and modifications during the experimentation phase.
+- To ensure that any successful changes can be reviewed and merged into other branches as needed.
+
+Branch Details:
+- The "experiments" branch is dedicated to testing new ideas, features, or code changes without affecting the main or stable branches.
+- Changes made here are subject to review and may be merged into other branches if deemed successful.
+
+Note:
+- Keep this file updated with relevant information about the experiments conducted in this branch.
+
