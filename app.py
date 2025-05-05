@@ -42,7 +42,10 @@ def index():
         except Exception as e:
             db.session.rollback()
             return f"Error saving data: {e}"
-    return render_template("index.html")
+    
+    # Check if any data exists in DB
+    has_data = User.query.count() > 0
+    return render_template("index.html", has_data=has_data)
 
 @app.route("/thankyou")
 def thank_you():

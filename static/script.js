@@ -1,4 +1,3 @@
-// main function: declaration of methods:
 function formValidation() {
     var uid = document.registration.userid;
     var passid = document.registration.passid;
@@ -7,8 +6,8 @@ function formValidation() {
     var ucountry = document.registration.country;
     var uzip = document.registration.zip;
     var uemail = document.registration.email;
-    var umsex = document.registration.msex;
-    var ufsex = document.registration.fsex; 
+    var umsex = document.getElementById("msex");
+    var ufsex = document.getElementById("fsex"); 
 
     if(userid_validation(uid, 5, 12)) {
         if(passid_validation(passid, 7, 12)) {
@@ -30,12 +29,10 @@ function formValidation() {
     return false;
 }
 
-// Sub-functions implementations:
-
 function userid_validation(uid, mx, my) {
     var uid_len = uid.value.length;
     if (uid_len == 0 || uid_len >= my || uid_len < mx) {
-        alert("User Id should not be empty / length be between " + mx + " to " + my);
+        alert("User ID should not be empty / length between " + mx + " to " + my);
         uid.focus();
         return false;
     }
@@ -45,7 +42,7 @@ function userid_validation(uid, mx, my) {
 function passid_validation(passid, mx, my) {
     var passid_len = passid.value.length;
     if (passid_len == 0 || passid_len >= my || passid_len < mx) {
-        alert("Password should not be empty / length be between " + mx + " to " + my);
+        alert("Password should not be empty / length between " + mx + " to " + my);
         passid.focus();
         return false;
     }
@@ -64,11 +61,11 @@ function allLetter(uname) {
 }
 
 function alphanumeric(uadd) {
-    var letters = /^[0-9a-zA-Z]+$/;
+    var letters = /^[0-9a-zA-Z\s]+$/;
     if(uadd.value.match(letters)) {
         return true;
     } else {
-        alert('User address must have alphanumeric characters only');
+        alert('Address must be alphanumeric');
         uadd.focus();
         return false;
     }
@@ -89,7 +86,7 @@ function allnumeric(uzip) {
     if(uzip.value.match(numbers)) {
         return true;
     } else {
-        alert('ZIP code must have numeric characters only');
+        alert('ZIP code must be numeric');
         uzip.focus();
         return false;
     }
@@ -101,32 +98,25 @@ function ValidateEmail(uemail) {
         return true;
     } else {
         alert("You have entered an invalid email address!");
+        uemail.focus();
         return false;
     }
 }
 
 function validsex(umsex, ufsex) {
     let x = 0;
-    if(umsex.checked) {
-        x++;
-    }
-    if(ufsex.checked) {
-        x++;
-    }
+    if(umsex.checked) { x++; }
+    if(ufsex.checked) { x++; }
 
     if(x == 2) {
-        alert('Both Male/Female are checked');
-        ufsex.checked = false;
+        alert('Both Male and Female are selected. Choose one.');
         umsex.checked = false;
-        umsex.focus();
+        ufsex.checked = false;
         return false;
     }
-
     if(x == 0) {
-        alert('Select Male/Female');
-        umsex.focus();
+        alert('Select Male or Female');
         return false;
-    } else {
-        return true;  // Gender is validated.
     }
+    return true;
 }

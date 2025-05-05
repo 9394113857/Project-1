@@ -1,42 +1,49 @@
 <!DOCTYPE html>
-<html lang="en">
+<html>
 <head>
-    <meta charset="UTF-8">
     <title>Registration Form</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+    <script src="{{ url_for('static', filename='script.js') }}"></script>
 </head>
 <body>
-    <h1>Registration Form</h1>
-    <form action="/" method="POST">
+    <h2>Registration Form</h2>
+    <form name="registration" method="post" action="/" onsubmit="return formValidation();">
         <label>User ID:</label>
-        <input type="text" name="userid" required><br><br>
+        <input type="text" name="userid" placeholder="Enter your user ID">
 
         <label>Password:</label>
-        <input type="password" name="passid" required><br><br>
+        <input type="password" name="passid" placeholder="Enter your password">
 
-        <label>Username:</label>
-        <input type="text" name="username" required><br><br>
+        <label>Name:</label>
+        <input type="text" name="username" placeholder="Enter your full name">
 
         <label>Address:</label>
-        <input type="text" name="address" required><br><br>
+        <textarea name="address" placeholder="Enter your address"></textarea>
 
         <label>Country:</label>
-        <input type="text" name="country" required><br><br>
+        <select name="country">
+            <option value="Default">--Select a country--</option>
+            <option value="India">India</option>
+            <option value="USA">USA</option>
+            <option value="UK">UK</option>
+        </select>
 
-        <label>Zip:</label>
-        <input type="text" name="zip" required><br><br>
+        <label>ZIP Code:</label>
+        <input type="text" name="zip" placeholder="Enter ZIP code">
 
         <label>Email:</label>
-        <input type="email" name="email" required><br><br>
+        <input type="text" name="email" placeholder="Enter your email">
 
-        <label>Sex:</label>
-        <input type="radio" name="sex" value="Male" required> Male
-        <input type="radio" name="sex" value="Female" required> Female<br><br>
+        <label>Gender:</label>
+        <input type="radio" name="sex" value="Male" id="msex"> Male
+        <input type="radio" name="sex" value="Female" id="fsex"> Female
 
-        <label>Language:</label>
-        <input type="text" name="language" required><br><br>
+        <label>Languages:</label>
+        <input type="checkbox" name="language" value="English"> English
+        <input type="checkbox" name="language" value="Telugu"> Telugu
 
-        <label>Description:</label><br>
-        <textarea name="desc" rows="4" cols="50"></textarea><br><br>
+        <label>Description:</label>
+        <textarea name="desc" placeholder="Tell us something about yourself..."></textarea>
 
         <button type="submit">Submit</button>
     </form>
