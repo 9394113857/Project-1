@@ -9,6 +9,13 @@ h2 {
     text-align: center;
 }
 
+/* Center the top button */
+.top-button-container {
+    text-align: center;
+    margin-bottom: 20px;
+}
+
+/* Style the registration form */
 form {
     width: 60%;
     margin: 0 auto;
@@ -46,6 +53,7 @@ button:hover {
     background-color: #45a049;
 }
 
+/* Optional: Table styling if you display data in a table */
 table {
     width: 80%;
     margin: 20px auto;
@@ -71,6 +79,7 @@ th {
     cursor: default;
 }
 
+/* Styled link that looks like a button */
 .btn-back {
     display: inline-block;
     padding: 10px 20px;
@@ -85,3 +94,15 @@ th {
 .btn-back:hover {
     background-color: #45a049;
 }
+
+.form-buttons {
+    text-align: center;
+    margin-top: 20px;
+}
+
+.form-buttons button,
+.form-buttons .btn-back {
+    display: inline-block;
+    margin: 0 10px;
+}
+

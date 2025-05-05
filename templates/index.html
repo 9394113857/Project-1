@@ -1,13 +1,22 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
+    <meta charset="UTF-8">
     <title>Registration Form</title>
     <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
     <script src="{{ url_for('static', filename='script.js') }}"></script>
 </head>
 <body>
+
+    <!-- Top Centered Button -->
+    <div class="top-button-container">
+        <a href="{{ url_for('thank_you', from_page='view') }}" class="btn-back">Show Existing Data</a>
+    </div>
+
     <h2>Registration Form</h2>
+
     <form name="registration" method="post" action="/" onsubmit="return formValidation();">
+
         <label>User ID:</label>
         <input type="text" name="userid" placeholder="Enter your user ID">
 
@@ -45,7 +54,13 @@
         <label>Description:</label>
         <textarea name="desc" placeholder="Tell us something about yourself..."></textarea>
 
-        <button type="submit">Submit</button>
+        <!-- Submit and Show Form Again buttons centered -->
+<div class="form-buttons">
+    <button type="submit">Submit</button>
+    <a href="{{ url_for('index') }}" class="btn-back">Show Form Again</a>
+</div>
+
     </form>
+
 </body>
 </html>

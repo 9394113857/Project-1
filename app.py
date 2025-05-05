@@ -38,7 +38,8 @@ def index():
             )
             db.session.add(new_user)
             db.session.commit()
-            return redirect(url_for('thank_you'))
+            return redirect(url_for('thank_you', from_page='submit'))
+
         except Exception as e:
             db.session.rollback()
             return f"Error saving data: {e}"
@@ -49,9 +50,11 @@ def index():
 
 @app.route("/thankyou")
 def thank_you():
+    from_page = request.args.get("from_page", "view")
     users = User.query.all()
     users_with_index = [(idx + 1, user) for idx, user in enumerate(users)]
-    return render_template("thank_you.html", data=users_with_index)
+    return render_template("thank_you.html", data=users_with_index, from_page=from_page)
+
 
 if __name__ == "__main__":
     with app.app_context():

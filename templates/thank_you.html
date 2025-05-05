@@ -6,7 +6,12 @@
     <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
 </head>
 <body>
-    <h1>Thank You! Your form was submitted.</h1>
+    {% if from_page == 'submit' %}
+    <h1>✅ Thank You! Your form was successfully submitted.</h1>
+{% else %}
+    <h1>📄 Showing All Previously Submitted Data</h1>
+{% endif %}
+
 
     <h2>All Submitted Data</h2>
     <table border="1" cellpadding="5">
