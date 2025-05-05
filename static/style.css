@@ -1,108 +1,118 @@
+/* General body styles */
 body {
-    font-family: Arial, sans-serif;
-    margin: 20px;
-    padding: 20px;
-    background-color: #f4f4f4;
+    font-family: Arial, sans-serif; /* Set font family */
+    margin: 20px; /* Add margin around the body */
+    padding: 20px; /* Add padding inside the body */
+    background-color: #f4f4f4; /* Set background color */
 }
 
+/* Center the h2 heading */
 h2 {
-    text-align: center;
+    text-align: center; /* Center-align the heading */
 }
 
 /* Center the top button */
 .top-button-container {
-    text-align: center;
-    margin-bottom: 20px;
+    text-align: center; /* Center the button horizontally */
+    margin-bottom: 20px; /* Add margin below the button */
 }
 
 /* Style the registration form */
 form {
-    width: 60%;
-    margin: 0 auto;
-    background-color: #fff;
-    padding: 20px;
-    border-radius: 8px;
-    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    width: 60%; /* Set form width to 60% of the screen */
+    margin: 0 auto; /* Center the form horizontally */
+    background-color: #fff; /* Set background color of the form */
+    padding: 20px; /* Add padding inside the form */
+    border-radius: 8px; /* Rounded corners */
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1); /* Add subtle shadow */
 }
 
+/* Style form labels */
 label {
-    font-size: 14px;
-    margin-bottom: 8px;
-    display: block;
+    font-size: 14px; /* Set font size */
+    margin-bottom: 8px; /* Add margin below the label */
+    display: block; /* Ensure label takes full width */
 }
 
+/* Style input fields, text areas, and select dropdown */
 input, textarea, select {
-    width: 100%;
-    padding: 8px;
-    margin: 5px 0 15px 0;
-    border: 1px solid #ddd;
-    border-radius: 4px;
+    width: 100%; /* Make the elements take full width */
+    padding: 8px; /* Add padding inside the elements */
+    margin: 5px 0 15px 0; /* Add margin for spacing */
+    border: 1px solid #ddd; /* Light border color */
+    border-radius: 4px; /* Rounded corners for inputs */
 }
 
+/* Style the submit button */
 button {
-    padding: 10px 20px;
-    font-size: 16px;
-    background-color: #4CAF50;
-    color: white;
-    border: none;
-    border-radius: 5px;
-    cursor: pointer;
+    padding: 10px 20px; /* Add padding inside the button */
+    font-size: 16px; /* Set font size */
+    background-color: #4CAF50; /* Set background color */
+    color: white; /* White text color */
+    border: none; /* Remove border */
+    border-radius: 5px; /* Rounded corners */
+    cursor: pointer; /* Change cursor on hover */
 }
 
+/* Hover effect for the button */
 button:hover {
-    background-color: #45a049;
+    background-color: #45a049; /* Darken button on hover */
 }
 
-/* Optional: Table styling if you display data in a table */
+/* Table styling for displaying data */
 table {
-    width: 80%;
-    margin: 20px auto;
-    border-collapse: collapse;
+    width: 80%; /* Set table width */
+    margin: 20px auto; /* Center the table */
+    border-collapse: collapse; /* Collapse table borders */
 }
 
 table, th, td {
-    border: 1px solid #ddd;
+    border: 1px solid #ddd; /* Light border color */
 }
 
+/* Style for table headers and data cells */
 th, td {
-    padding: 8px 12px;
-    text-align: center;
+    padding: 8px 12px; /* Add padding inside cells */
+    text-align: center; /* Center-align the text */
 }
 
 th {
-    background-color: #f2f2f2;
+    background-color: #f2f2f2; /* Set background color for headers */
 }
 
+/* Disabled link styling */
 .disabled-link {
-    background-color: #ccc;
-    pointer-events: none;
-    cursor: default;
+    background-color: #ccc; /* Set background color to gray */
+    pointer-events: none; /* Disable click events */
+    cursor: default; /* Change cursor to default */
 }
 
 /* Styled link that looks like a button */
 .btn-back {
-    display: inline-block;
-    padding: 10px 20px;
-    background-color: #4CAF50;
-    color: white;
-    text-decoration: none;
-    border-radius: 5px;
-    margin-top: 20px;
-    text-align: center;
+    display: inline-block; /* Make the link behave like a block element */
+    padding: 10px 20px; /* Add padding inside the link */
+    background-color: #4CAF50; /* Set background color */
+    color: white; /* White text color */
+    text-decoration: none; /* Remove underline from link */
+    border-radius: 5px; /* Rounded corners */
+    margin-top: 20px; /* Add margin at the top */
+    text-align: center; /* Center the text inside the button */
 }
 
+/* Hover effect for the styled link */
 .btn-back:hover {
-    background-color: #45a049;
+    background-color: #45a049; /* Darken button on hover */
 }
 
+/* Container for the form buttons */
 .form-buttons {
-    text-align: center;
-    margin-top: 20px;
+    text-align: center; /* Center-align the buttons */
+    margin-top: 20px; /* Add margin above the buttons */
 }
 
+/* Style for buttons inside .form-buttons */
 .form-buttons button,
 .form-buttons .btn-back {
-    display: inline-block;
-    margin: 0 10px;
+    display: inline-block; /* Make buttons appear side-by-side */
+    margin: 0 10px; /* Add horizontal margin between buttons */
 }
-

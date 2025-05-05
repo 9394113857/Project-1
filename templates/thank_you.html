@@ -1,22 +1,32 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
+    <!-- Define character encoding -->
     <meta charset="UTF-8">
     <title>Thank You</title>
+
+    <!-- Link to external CSS file -->
     <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
 </head>
 <body>
+
+    <!-- Conditional message based on page navigation -->
     {% if from_page == 'submit' %}
-    <h1>✅ Thank You! Your form was successfully submitted.</h1>
-{% else %}
-    <h1>📄 Showing All Previously Submitted Data</h1>
-{% endif %}
+        <!-- Display thank you message if the page is reached after form submission -->
+        <h1>✅ Thank You! Your form was successfully submitted.</h1>
+    {% else %}
+        <!-- Display message showing previously submitted data -->
+        <h1>📄 Showing All Previously Submitted Data</h1>
+    {% endif %}
 
-
+    <!-- Heading for the table displaying submitted data -->
     <h2>All Submitted Data</h2>
+
+    <!-- Table to display all the submitted data -->
     <table border="1" cellpadding="5">
         <thead>
             <tr>
+                <!-- Column headers for the data -->
                 <th>#</th>
                 <th>User ID</th>
                 <th>Password</th>
@@ -31,25 +41,29 @@
             </tr>
         </thead>
         <tbody>
+            <!-- Loop through all submitted data -->
             {% for idx, entry in data %}
-            <tr>
-                <td>{{ idx }}</td>
-                <td>{{ entry.userid }}</td>
-                <td>{{ entry.passid }}</td>
-                <td>{{ entry.username }}</td>
-                <td>{{ entry.address }}</td>
-                <td>{{ entry.country }}</td>
-                <td>{{ entry.zip }}</td>
-                <td>{{ entry.email }}</td>
-                <td>{{ entry.sex }}</td>
-                <td>{{ entry.language }}</td>
-                <td>{{ entry.desc }}</td>
-            </tr>
+                <tr>
+                    <!-- Display individual data in table rows -->
+                    <td>{{ idx }}</td>
+                    <td>{{ entry.userid }}</td>
+                    <td>{{ entry.passid }}</td>
+                    <td>{{ entry.username }}</td>
+                    <td>{{ entry.address }}</td>
+                    <td>{{ entry.country }}</td>
+                    <td>{{ entry.zip }}</td>
+                    <td>{{ entry.email }}</td>
+                    <td>{{ entry.sex }}</td>
+                    <td>{{ entry.language }}</td>
+                    <td>{{ entry.desc }}</td>
+                </tr>
             {% endfor %}
         </tbody>
     </table>
 
+    <!-- Button to go back to the form page -->
     <br>
     <a href="/"><button>Back to Form</button></a>
+
 </body>
 </html>

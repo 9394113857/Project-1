@@ -1,34 +1,46 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
+    <!-- Define character encoding -->
     <meta charset="UTF-8">
     <title>Registration Form</title>
+
+    <!-- Link to external CSS file -->
     <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+
+    <!-- Link to external JavaScript file -->
     <script src="{{ url_for('static', filename='script.js') }}"></script>
 </head>
 <body>
 
-    <!-- Top Centered Button -->
+    <!-- Top Centered Button to Show Existing Data -->
     <div class="top-button-container">
         <a href="{{ url_for('thank_you', from_page='view') }}" class="btn-back">Show Existing Data</a>
     </div>
 
+    <!-- Form Heading -->
     <h2>Registration Form</h2>
 
+    <!-- Registration Form with client-side validation -->
     <form name="registration" method="post" action="/" onsubmit="return formValidation();">
 
+        <!-- User ID Field -->
         <label>User ID:</label>
         <input type="text" name="userid" placeholder="Enter your user ID">
 
+        <!-- Password Field -->
         <label>Password:</label>
         <input type="password" name="passid" placeholder="Enter your password">
 
+        <!-- Name Field -->
         <label>Name:</label>
         <input type="text" name="username" placeholder="Enter your full name">
 
+        <!-- Address Field -->
         <label>Address:</label>
         <textarea name="address" placeholder="Enter your address"></textarea>
 
+        <!-- Country Dropdown -->
         <label>Country:</label>
         <select name="country">
             <option value="Default">--Select a country--</option>
@@ -37,28 +49,33 @@
             <option value="UK">UK</option>
         </select>
 
+        <!-- ZIP Code Field -->
         <label>ZIP Code:</label>
         <input type="text" name="zip" placeholder="Enter ZIP code">
 
+        <!-- Email Field -->
         <label>Email:</label>
         <input type="text" name="email" placeholder="Enter your email">
 
+        <!-- Gender Radio Buttons -->
         <label>Gender:</label>
         <input type="radio" name="sex" value="Male" id="msex"> Male
         <input type="radio" name="sex" value="Female" id="fsex"> Female
 
+        <!-- Languages Checkboxes -->
         <label>Languages:</label>
         <input type="checkbox" name="language" value="English"> English
         <input type="checkbox" name="language" value="Telugu"> Telugu
 
+        <!-- Description Textarea -->
         <label>Description:</label>
         <textarea name="desc" placeholder="Tell us something about yourself..."></textarea>
 
-        <!-- Submit and Show Form Again buttons centered -->
-<div class="form-buttons">
-    <button type="submit">Submit</button>
-    <a href="{{ url_for('index') }}" class="btn-back">Show Form Again</a>
-</div>
+        <!-- Submit and Show Form Again Buttons -->
+        <div class="form-buttons">
+            <button type="submit">Submit</button> <!-- Form submit button -->
+            <a href="{{ url_for('index') }}" class="btn-back">Show Form Again</a> <!-- Link to reset form -->
+        </div>
 
     </form>
 
