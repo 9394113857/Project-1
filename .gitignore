@@ -4,11 +4,11 @@ __pycache__/
 *.pyo
 *.pyd
 
-# Ignore virtual environment folder
+# Ignore virtual environment folders
 env/
 venv/
 
-# Ignore SQLite database if you don't want to track it in Git
+# Ignore SQLite database files
 *.sqlite3
 *.db
 
@@ -22,6 +22,7 @@ Thumbs.db
 
 # Ignore compiled files or logs
 *.log
+logs/
 
-# Ignore environment variable or secret configuration files
+# Ignore environment variables or secrets
 .env
