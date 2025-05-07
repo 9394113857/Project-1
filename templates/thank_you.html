@@ -1,69 +1,39 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <!-- Define character encoding -->
     <meta charset="UTF-8">
-    <title>Thank You</title>
-
-    <!-- Link to external CSS file -->
+    <title>Thank You / Data</title>
     <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
 </head>
 <body>
+    <h2>Data Page</h2>
 
-    <!-- Conditional message based on page navigation -->
-    {% if from_page == 'submit' %}
-        <!-- Display thank you message if the page is reached after form submission -->
-        <h1>✅ Thank You! Your form was successfully submitted.</h1>
-    {% else %}
-        <!-- Display message showing previously submitted data -->
-        <h1>📄 Showing All Previously Submitted Data</h1>
-    {% endif %}
-
-    <!-- Heading for the table displaying submitted data -->
-    <h2>All Submitted Data</h2>
-
-    <!-- Table to display all the submitted data -->
-    <table border="1" cellpadding="5">
-        <thead>
-            <tr>
-                <!-- Column headers for the data -->
-                <th>#</th>
-                <th>User ID</th>
-                <th>Password</th>
-                <th>Username</th>
-                <th>Address</th>
-                <th>Country</th>
-                <th>Zip</th>
-                <th>Email</th>
-                <th>Sex</th>
-                <th>Language</th>
-                <th>Description</th>
-            </tr>
-        </thead>
-        <tbody>
-            <!-- Loop through all submitted data -->
-            {% for idx, entry in data %}
-                <tr>
-                    <!-- Display individual data in table rows -->
-                    <td>{{ idx }}</td>
-                    <td>{{ entry.userid }}</td>
-                    <td>{{ entry.passid }}</td>
-                    <td>{{ entry.username }}</td>
-                    <td>{{ entry.address }}</td>
-                    <td>{{ entry.country }}</td>
-                    <td>{{ entry.zip }}</td>
-                    <td>{{ entry.email }}</td>
-                    <td>{{ entry.sex }}</td>
-                    <td>{{ entry.language }}</td>
-                    <td>{{ entry.desc }}</td>
-                </tr>
-            {% endfor %}
-        </tbody>
+    <!-- Table displaying data -->
+    <table>
+        <tr>
+            <th>ID</th><th>User ID</th><th>Username</th><th>Email</th><th>Actions</th>
+        </tr>
+        {% for row in data %}
+        <tr>
+            <td>{{ row[0] }}</td>
+            <td>{{ row[1] }}</td>
+            <td>{{ row[3] }}</td>
+            <td>{{ row[7] }}</td>
+            <td>
+                <div class="action-buttons">
+                    <!-- Edit Button -->
+                    <a href="{{ url_for('edit', id=row[0]) }}" class="btn-action">Edit</a> 
+                    <!-- Delete Button -->
+                    <a href="{{ url_for('delete', id=row[0]) }}" class="btn-action" onclick="return confirm('Are you sure you want to delete?')">Delete</a>
+                </div>
+            </td>
+        </tr>
+        {% endfor %}
     </table>
 
-    <!-- Button to go back to the form page -->
-    <br>
-    <a href="/"><button>Back to Form</button></a>
-
+    <!-- Back to Form Button -->
+    <div class="top-button-container">
+        <a href="{{ url_for('index') }}" class="btn-back">Back to Form</a>
+    </div>
 </body>
 </html>

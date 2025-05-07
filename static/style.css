@@ -43,23 +43,40 @@ input, textarea, select {
     border-radius: 4px; /* Rounded corners for inputs */
 }
 
-/* Style the submit button */
-button {
+/* Button and link button styles */
+button, .btn-back {
+    display: inline-block; /* Make the link behave like a block element */
     padding: 10px 20px; /* Add padding inside the button */
     font-size: 16px; /* Set font size */
     background-color: #4CAF50; /* Set background color */
     color: white; /* White text color */
+    text-decoration: none;  /* Remove underline for link */
     border: none; /* Remove border */
     border-radius: 5px; /* Rounded corners */
     cursor: pointer; /* Change cursor on hover */
+    text-align: center; /* Center the text inside the button */
+    margin-top: 20px; /* Add margin at the top */
 }
 
-/* Hover effect for the button */
-button:hover {
+/* Hover effect for buttons */
+button:hover, .btn-back:hover {
     background-color: #45a049; /* Darken button on hover */
 }
 
-/* Table styling for displaying data */
+/* Disabled link styling */
+.disabled-link {
+    background-color: #ccc; /* Set background color to gray */
+    pointer-events: none; /* Disable click events */
+    cursor: default; /* Change cursor to default */
+}
+
+/* Form button container */
+.form-buttons {
+    text-align: center; /* Center-align the buttons */
+    margin-top: 20px; /* Add margin above the buttons */
+}
+
+/* Style for table data (if applicable for existing data view) */
 table {
     width: 80%; /* Set table width */
     margin: 20px auto; /* Center the table */
@@ -70,7 +87,6 @@ table, th, td {
     border: 1px solid #ddd; /* Light border color */
 }
 
-/* Style for table headers and data cells */
 th, td {
     padding: 8px 12px; /* Add padding inside cells */
     text-align: center; /* Center-align the text */
@@ -80,39 +96,22 @@ th {
     background-color: #f2f2f2; /* Set background color for headers */
 }
 
-/* Disabled link styling */
-.disabled-link {
-    background-color: #ccc; /* Set background color to gray */
-    pointer-events: none; /* Disable click events */
-    cursor: default; /* Change cursor to default */
-}
-
-/* Styled link that looks like a button */
-.btn-back {
-    display: inline-block; /* Make the link behave like a block element */
-    padding: 10px 20px; /* Add padding inside the link */
-    background-color: #4CAF50; /* Set background color */
+/* Style for the action buttons (Edit & Delete) */
+.action-buttons a {
+    display: inline-block; /* Display buttons inline */
+    padding: 10px 20px; /* Add padding inside buttons */
+    margin: 0 10px; /* Add space between buttons */
+    font-size: 16px; /* Set font size */
+    background-color: #4CAF50; /* Green background for action buttons */
     color: white; /* White text color */
-    text-decoration: none; /* Remove underline from link */
+    text-decoration: none; /* Remove underline */
+    border: none; /* Remove borders */
     border-radius: 5px; /* Rounded corners */
-    margin-top: 20px; /* Add margin at the top */
-    text-align: center; /* Center the text inside the button */
+    cursor: pointer; /* Pointer cursor on hover */
+    text-align: center; /* Center-align text */
 }
 
-/* Hover effect for the styled link */
-.btn-back:hover {
-    background-color: #45a049; /* Darken button on hover */
-}
-
-/* Container for the form buttons */
-.form-buttons {
-    text-align: center; /* Center-align the buttons */
-    margin-top: 20px; /* Add margin above the buttons */
-}
-
-/* Style for buttons inside .form-buttons */
-.form-buttons button,
-.form-buttons .btn-back {
-    display: inline-block; /* Make buttons appear side-by-side */
-    margin: 0 10px; /* Add horizontal margin between buttons */
+/* Hover effect for action buttons */
+.action-buttons a:hover {
+    background-color: #45a049; /* Darker green on hover */
 }

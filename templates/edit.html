@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <!-- Define character encoding -->
+    <meta charset="UTF-8">
+    <title>Edit Record</title>
+
+    <!-- Link to external CSS file -->
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+<body>
+    <!-- Form Heading -->
+    <h2>Edit User</h2>
+
+    <!-- Edit User Form -->
+    <form method="POST">
+        <!-- User ID Field -->
+        <label>User ID:</label>
+        <input type="text" name="userid" value="{{ user[1] }}" required>
+
+        <!-- Password Field -->
+        <label>Password:</label>
+        <input type="text" name="passid" value="{{ user[2] }}" required>
+
+        <!-- Username Field -->
+        <label>Username:</label>
+        <input type="text" name="username" value="{{ user[3] }}" required>
+
+        <!-- Address Field -->
+        <label>Address:</label>
+        <textarea name="address" required>{{ user[4] }}</textarea>
+
+        <!-- Country Dropdown -->
+        <label>Country:</label>
+        <select name="country">
+            <option {% if user[5] == 'India' %}selected{% endif %}>India</option>
+            <option {% if user[5] == 'USA' %}selected{% endif %}>USA</option>
+            <option {% if user[5] == 'UK' %}selected{% endif %}>UK</option>
+        </select>
+
+        <!-- Zip Code Field -->
+        <label>Zip:</label>
+        <input type="text" name="zip" value="{{ user[6] }}" required>
+
+        <!-- Email Field -->
+        <label>Email:</label>
+        <input type="email" name="email" value="{{ user[7] }}" required>
+
+        <!-- Gender Radio Buttons -->
+        <label>Sex:</label>
+        <input type="radio" name="sex" value="Male" {% if user[8] == 'Male' %}checked{% endif %}> Male
+        <input type="radio" name="sex" value="Female" {% if user[8] == 'Female' %}checked{% endif %}> Female
+
+        <!-- Languages Checkboxes -->
+        <label>Language:</label>
+        {% set langs = user[9].split(', ') %}
+        <input type="checkbox" name="language" value="English" {% if 'English' in langs %}checked{% endif %}> English
+        <input type="checkbox" name="language" value="Hindi" {% if 'Hindi' in langs %}checked{% endif %}> Hindi
+
+        <!-- Description Field -->
+        <label>About:</label>
+        <textarea name="desc" required>{{ user[10] }}</textarea>
+
+        <!-- Buttons Section -->
+        <div class="form-buttons">
+            <button type="submit">Update</button> <!-- Update button -->
+            <a href="{{ url_for('thank_you', from_page='view') }}" class="btn-back">Cancel</a> <!-- Cancel button -->
+        </div>
+    </form>
+</body>
+</html>
