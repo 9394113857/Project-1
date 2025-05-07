@@ -4,6 +4,9 @@ from logging.handlers import RotatingFileHandler
 from flask import Flask, render_template, request, redirect, url_for
 import sqlite3
 from datetime import date
+import socket
+import webbrowser
+import time
 
 # Setup logger
 logs_dir = os.path.join(os.path.dirname(os.path.abspath(__file__)), 'logs')  # Directory for logs
@@ -140,5 +143,45 @@ def delete(id):
         logger.error(f"Error deleting user {id}: {e}")  # Log error if something goes wrong
         return "An error occurred. Please try again later."  # Return error message to user
 
+def is_port_open(port):
+    """ Check if the given port is available (not in use). """
+    s = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
+    try:
+        s.bind(('0.0.0.0', port))
+        s.close()
+        return True
+    except socket.error:
+        return False
+
 if __name__ == '__main__':
-    app.run(debug=True)  # Run the Flask app in debug mode
+    # Default port to check is 5000
+    default_port = 5000
+    port = input(f"Enter port (default is {default_port}): ") or default_port
+    
+    try:
+        port = int(port)
+        # First, check if the default port is available, even if the user has specified another port.
+        if not is_port_open(default_port):
+            print(f"Port {default_port} is already in use.")
+            logger.error(f"Port {default_port} is already in use.")  # Log the error for default port
+            # If the default port is in use, check user-provided port or offer the user a chance to choose a new one
+            if is_port_open(port):
+                app.run(host='0.0.0.0', port=port, debug=True)  # Run the app with the user-specified port
+                logger.info(f"App running on port {port}")  # Log that the app is running
+                time.sleep(2)  # Give Flask some time to start the server
+                webbrowser.open(f'http://localhost:{port}')  # Open the browser automatically
+            else:
+                print(f"Port {port} is also unavailable. Please choose another port.")
+                logger.error(f"Port {port} is unavailable.")  # Log the error for the provided port
+        else:
+            app.run(host='0.0.0.0', port=default_port, debug=True)  # Run the app with the default port
+            logger.info(f"App running on port {default_port}")  # Log that the app is running
+            time.sleep(2)  # Give Flask some time to start the server
+            webbrowser.open(f'http://localhost:{default_port}')  # Open the browser automatically
+            
+    except ValueError:
+        print("Invalid port number. Please provide a valid number.")
+        logger.error("Invalid port number entered.")  # Log the error
+    except Exception as e:
+        print(f"Error: {e}")
+        logger.error(f"Unexpected error: {e}")  # Log any other unexpected errors
