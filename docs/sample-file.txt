@@ -1,6 +1,7 @@
 sample file created adding more etc
 
 // Here’s the corrected commit command:
-git commit -m "1. Fixed form validation and added logging functionality
-2. Updated User model for better data handling
-3. Commit made on: $(Get-Date -Format 'yyyy-MM-dd HH:mm:ss')"
+git commit -m "1. Enhanced form validation and improved logging features
+2. Refined User model for better data integrity
+3. Commit completed on: $(Get-Date -Format 'yyyy-MM-dd HH:mm:ss')"
+
