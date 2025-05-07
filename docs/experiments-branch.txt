@@ -1,0 +1,42 @@
+# Step 1: Navigate to your project directory
+# This ensures you are in the correct folder where your Git repository is located.
+cd E:\Office-projects\dedee-projects\Registration-Flow
+
+# Step 2: List all branches (local and remote)
+# Use this to see all available branches in your repository.
+git branch -a
+
+# Step 3: Switch to the target branch where you want to merge changes
+# Replace 'main' with the branch you want to merge into (e.g., 'main', 'develop').
+git checkout experiments
+
+# Step 4: Fetch the latest updates from the remote repository
+# This updates your local repository with the latest changes from the remote.
+git fetch origin
+
+# Step 5: Check the status of your branch
+# This shows the current status of your branch, including any uncommitted changes.
+git status
+
+# Step 6: Pull the latest updates from the remote branch
+# This ensures your local branch is up-to-date with the remote branch.
+git pull origin experiments
+
+# Step 7: Merge the source branch into the target branch
+# Replace 'feature-login' with the branch you want to merge (e.g., 'feature-login', 'bugfix-123').
+git merge feature-login
+
+# Step 8: If there are conflicts, resolve them manually:
+# Open the conflicted files in your editor, resolve the conflicts, and then:
+# Add each resolved file individually:
+git add <resolved-file>
+# OR add all resolved files at once:
+git add .
+
+# Step 9: Finalize the merge after resolving conflicts
+# Commit the merge with a descriptive message.
+git commit -m "Merged feature-login into experiments with updates"
+
+# Step 10: Push the updated target branch to the remote repository
+# This uploads your changes to the remote repository.
+git push origin experiments
