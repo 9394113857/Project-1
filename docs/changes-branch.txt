@@ -1,0 +1,32 @@
+# Step 1: Ensure you're in the project directory
+cd E:\Office-projects\dedee-projects\Registration-Flow
+
+# Step 2: Check your current branches
+git branch -a
+
+# Step 3: Switch to the target branch where you want to merge (changes)
+git checkout changes
+
+# Step 4: Fetch the latest updates from the remote repository
+git fetch origin
+
+# Step 5: Check the status of your branch
+git status
+
+# Step 6: Pull the latest updates (optional but good practice)
+git pull origin changes
+
+# Step 7: Merge the 'experiments' branch into 'changes'
+git merge experiments
+
+# Step 8: If there are conflicts, resolve them manually:
+# Open the conflicted files, edit them to resolve conflicts, then:
+git add <resolved-file>  # Add each resolved file individually
+# OR add all resolved files at once:
+git add .
+
+# Step 9: Finalize the merge after resolving conflicts
+git commit -m "Merged experiments into changes branch with UI and CRUD improvements"
+
+# Step 10: Push the updated 'changes' branch to the remote repository
+git push origin changes
